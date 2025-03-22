@@ -3,12 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Belajar Javascript OOP</title>
+    <title>Object</title>
   </head>
   <body>
-    <h1>Belajar Javascript OOP</h1>
-    <p>
-      Selamat datang di pembelajaran Javascript Object-Oriented Programming.
-    </p>
+    <script>
+      // Membuat Object
+      // Sebenarnya kita sudah belajar tipe data object dengan cara membuat variable dengan tipe data object
+      // Namun pembuatan object menggunakan tipe data object, akan membuat object yang selalu unik, sedangkan dalam OOP, biasanya kita akan membuat class sebagai cetakan, sehingga bisa membuat object dengan karakteristik yang sama berkali-kali, tanpa harus mendeklarasikan object berkali-kali seperti menggunakan tipe data object
+
+      // MEMBUAT OBJECT DENGAN OBJECT
+      const hadi = {
+        firstName: "hadi",
+      };
+
+      const putra = {
+        namaDepan: "Tri",
+      };
+
+      // NOTED : const hadi, putra itu berbeda (unik), karena disetiap isi object nya tidak selalu sama
+
+      // Membuat Constructor Function (Versi Lama Sebelum ES6/ECMAScript 6)
+      // Sebelum ES6, pembuatan class, biasanya menggunakan function. Hal ini dikarenakan sebenarnya JavaScript bukanlah bahasa pemrograman yang fokus ke OOP
+      // Untuk membuat class di JavaScript lama, kita bisa membuat function
+      // Function ini kita sebut dengan "CONSTRUCTOR FUNCTION"
+      // NOTED : Gunakan awalan namanya huruf besar (best pratices) -> function Person(){} / function PremiumMember(){}
+
+      // Constructor Function (ini sebagai class) -> ini versi lama
+      function Person() {}
+
+      // Buat Object Baru dari class (dengan kata kunci new)
+      const eko = new Person();
+      const budi = new Person();
+    </script>
   </body>
 </html>
