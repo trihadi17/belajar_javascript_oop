@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inheritence Constructor Function</title>
+  </head>
+  <body>
+    <script>
+      // Inheritence Constructor Function
+      // Dalam constructor kita biasanya membuat property baik itu berisi value ataupun function
+      // Didalm constructor kita bisa memanggil constructor lain, dengan begitu kita bisa mewarisi semua property yang dibuat di constructor lain tersebut (mengcopy)
+      // Untuk memanggil constructor lian, kita bisa menggunakan "NamaConstructor.call(this, parameter)"
+      // NOTED : NamaConstructor.call(this, parameter) -> this itu wajib, dan parameternya harus sesuaikan banyaknya dengan parameter di constructor yang dipanggil
+
+      function Employee(firstName) {
+        this.firstName = firstName;
+
+        this.sayHello = function (name) {
+          console.info(`Hello ${name}, my name is ${this.firstName}`);
+        };
+      }
+
+      function Manager(firstName, lastName) {
+        this.lastName = lastName; // property object manager
+
+        // Inheritence (mencocpy constructor lain), sehingga memiliki semua elemen didalamnya tanpa harus dicopy secara manual
+        Employee.call(this, firstName); // sesuaikan banyak parameter dengan parameter di constructor yang dipanggil
+      }
+
+      // Buat object
+      const eko = new Manager("Trihadi", "Putra");
+      console.log(eko);
+    </script>
+  </body>
+</html>

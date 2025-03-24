@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prototype</title>
+  </head>
+  <body>
+    <script>
+      // Prototype
+      // Saat membuat object dari constructor function, object tersebut disebut "instance" yang dimana semua property, method, value berada didalam instance objectnya
+      // Setiap membuat sebuah constructor function, secara otomatis akan dibuatkan "prototype". Misal constructor function Person -> Person.prototype
+      // Saat membuat object instance, secara otomatis object tersebut adalah turunan dari Person.prototype nya
+      // Untuk mengakses prototype, gunakan __proto__
+
+      // CARA KERJA PROTOTYPE
+      // Di cek di instance object dulu -> Prototype diatasnya -> proto level atas lagi -> hingga seterusnya -> jika tidak ada maka akan error
+
+      // Constructor Function
+      function Person(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.sayHello = function (name) {
+          console.info(`Hello ${name}, my name is ${this.firstName}`);
+        };
+      }
+
+      // Object Instance
+      const eko = new Person("Trihadi", "Putra");
+      const budi = new Person("Sanda", "Kaa");
+      console.log(eko);
+      console.log(budi);
+
+      // Menambah property ke object instance
+      // eko.sayBye = function () {
+      //   console.info(`Good bye`);
+      // };
+
+      // Menambah property ke prototype
+      Person.prototype.sayBye = function () {
+        console.log("Good bye");
+      };
+
+      // Akses prototype
+      eko.sayBye(); // Good bye
+      budi.sayBye(); // Good bye
+    </script>
+  </body>
+</html>

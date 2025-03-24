@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parameter Constructor Function</title>
+  </head>
+  <body>
+    <script>
+      // Parameter di Constructor Function
+      // Constructor function sama seperti function biasanya, bisa memiliki parameter, hal ini membuat ketika kita membuat object, kita bisa mengirim langsung data lewat parameter di constructor function tersebut
+
+      // Constructor function dengan parameter
+      function Person(firstName, lastName) {
+        this.firstName = firstName; // ini property didalam object
+        this.lastName = lastName;
+
+        // method di object
+        this.sayHello = function (name) {
+          console.info(`Hello ${name}, my name is ${this.firstName}`);
+        };
+      } // constructor function
+
+      // Buat Object Baru dari class (dengan kata kunci "new")
+      const eko = new Person("Eko", "Khannedy"); // -> ini object dengan parameter
+      eko.sayHello("Joko");
+      console.info(eko);
+
+      const budi = new Person("Asep", "Nugraha");
+      budi.sayHello("Wahyu");
+      console.info(budi);
+    </script>
+  </body>
+</html>
