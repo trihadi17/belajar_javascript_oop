@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Class Field</title>
+  </head>
+  <body>
+    <script>
+      // Static Class Field
+      // Jika kita tambahkan static dalam class field, secara otomatis field tersebut bukan lagi milik instance object, melainkan milik class nya itu sendiri
+      // Maksudnya adalah ketika membuat object, maka field itu bukan kepunyaan dari object melainkan punya class nya. Sehingga ketika dipanggil maka harus panggil class kemudian fieldnya
+      // Biasanya static digunakan jika kita ingin membuat utility field atau function
+      // Cara mengakses static class field pun tidak lagi lewat object, melainkan lewat classnya
+      // Static class field bisa diartikan sifatnya global, tidak peduli diakses dimana atau siapa yang mengakses, hasilnya akan sama
+
+      class Configuration {
+        // Static Class Field
+        static name = "Belajar JavaScript Dasar";
+      }
+
+      // Object
+      const eko = new Configuration();
+      console.log(eko.name); // undefined, karna field name itu static bukan kepunyaan object melainkan class, sehingga tidak ada pada object
+
+      // Cara Mengakses Static Class Field
+      console.log(Configuration.name); // NamaClass.namaStaticField
+      console.log((Configuration.name = "Belajar untuk pandai")); // Ubah data field
+    </script>
+  </body>
+</html>

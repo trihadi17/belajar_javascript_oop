@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Class Method</title>
+  </head>
+  <body>
+    <script>
+      // Static Method
+      // Jika ditambahkan static pada method, artinya method tersebut jadi milik claasnya, bukan prototype
+      // Untuk mengakses method tersebut, kita juga bisa lakukan seperti mengakses static class field
+
+      class MathUtil {
+        // Static Method
+        static add() {
+          return 1;
+        }
+      }
+
+      // Object
+      const math = new MathUtil();
+      //   math.add(); // error, karena tidak ada pada prototype
+
+      // Cara Mengakses
+      const math2 = MathUtil.add();
+      console.log(math2);
+    </script>
+  </body>
+</html>
