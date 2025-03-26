@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Super Constructor</title>
+  </head>
+  <body>
+    <script>
+      // Super Constructor
+      // Kata kunci "super" digunakan untuk memanggil constructor dari parent class ke dalam class yang mewarisinya (child class)
+      /*  NOTED : 
+                  1.Jika di child class kita membuat constructor, maka kita wajib memanggil parent constructor, walaupun di parent tidak ada constructor 
+                  2. Kata kunci super(), hanya bisa di inisialisasi didalam constructor(){} kepunyaan child class, diluar itu gak bisa
+     */
+
+      // Parent Class
+      class Employee {
+        // Constructor
+        constructor(name) {
+          this.name = name;
+        }
+
+        sayHello(name) {
+          console.info(`Hello my name is ${this.name}`);
+        }
+      }
+
+      // Child class
+      class Manager extends Employee {
+        constructor(firstName, lastName) {
+          super(firstName); // constructor parent, ini wajib dipanggil ketika child class/inheritence nya ingin membuat constructor juga, jika tidak akan error, tetapi jika tidak ada constructor pada child class itu tidak perlu dipanggil
+          this.lastName = lastName;
+        }
+      }
+
+      // Object
+      const employee = new Employee("Budi");
+      employee.sayHello();
+
+      const manager = new Manager("Eko");
+      manager.sayHello();
+      console.log(manager);
+    </script>
+  </body>
+</html>

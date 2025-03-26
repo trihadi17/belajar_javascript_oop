@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Inheritance</title>
+  </head>
+  <body>
+    <script>
+      // Class Inheritance
+      // Class Inheritance adalah pewarisan properti/method dari class lain (parent class).
+      // Dengan Inheritance, kita memiliki semua fitur dari class lain kemudian dapat mengubah sesuai kebutuhan tanpa harus mengubah langsung pada parent class nya
+      // Untuk melakukan pewarisan gunakan kata kunci "extends"
+      // NOTED : class inheritance hanya bisa memiliki satu parent class
+
+      class Employee {
+        sayHello(name) {
+          console.info(`Hello my name is ${name}`);
+        }
+      }
+
+      // Class inheritance (pewarisan dari parent class)
+      class Manager extends Employee {}
+
+      // Object
+      const employee = new Employee();
+      employee.sayHello("Hadi");
+
+      const manager = new Manager();
+      manager.sayHello("Eko"); // tidak error, karena dia mewarisi apa yang dipunya dari parent classnya
+    </script>
+  </body>
+</html>

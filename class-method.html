@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Method</title>
+  </head>
+  <body>
+    <script>
+      // Class Method
+      // Method adalah fungsi yang berada didalam sebuah class/object
+      // Method digunakan untuk menjalankan suatu aksi/memproses apapun dalam class atau object tersebut
+      // Dalam membuat method, tidak perlu menggunakan kata kunci "function", langsung saja buat nama method nya
+      // NOTED : Best practice untuk membuat method, sebaiknya buatlah method yang mengarah ke prototype bukan langsung ke instance object
+
+      class Person {
+        // Property
+        constructor(name) {
+          this.name = name;
+        }
+
+        // Method
+        // Ini secara otomatis ditambahkan ke prototype bukan instance object
+        sayHello() {
+          console.info(`Hello my name is ${this.name}`);
+        }
+      }
+
+      // Object
+      const eko = new Person("Eko");
+      console.log(eko);
+      eko.sayHello();
+    </script>
+  </body>
+</html>

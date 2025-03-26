@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Super Method</title>
+  </head>
+  <body>
+    <script>
+      // Super Method
+      // Selain digunakan untuk memanggil constructor milik parent class, kata kunci "super" juga bisa digunakan untuk mengakses method dari parent class
+      // Caranya bisa menggunakan super.NamaMethod (Ini method dari dalam parent class )
+      // Dengan kata lain, super sebernanya adalah reference ke parent prototype, mirip seperi __proto__
+      // NOTED : Inisialisasi super() harus didalam method, tidak bisa diluar itu
+
+      // Parent
+      class Shape {
+        paint() {
+          console.info(`Paint Shape`);
+        }
+      }
+
+      // Child
+      class Circle extends Shape {
+        brush() {
+          super.paint(); // Method dari parent class
+          console.info(`Paint Brush`);
+        }
+      }
+
+      const circle = new Circle();
+      circle.brush();
+    </script>
+  </body>
+</html>

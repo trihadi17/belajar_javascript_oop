@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Private Method</title>
+  </head>
+  <body>
+    <script>
+      // Private Method
+      // Private Method adalah method yang hanya bisa diakses didalam class saja, tidak bisa diakses diluar
+      // Cara pembuatan method nya, #namaMethod(){}
+
+      class Person {
+        say(name) {
+          console.info(`Hello ${name}`);
+        }
+
+        // Private Method
+        #sayHello() {
+          console.info(`Hello`);
+        }
+      }
+
+      // Object
+      const person = new Person();
+      person.say("Hadi"); // Error, karena tidak ada method itu dalam class
+      //   person.#sayHello(); // Error, karena private
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Private Field</title>
+  </head>
+  <body>
+    <script>
+      // Private Field
+      // Private field adalah field/property yang tidak bisa diakses dari luar class (bersifat private) / Hanya bisa diakses dalam class
+      // Untuk membuat Private class field, gunakan tanda "#" sebelum nama fieldnya -> #firstName
+
+      class Counter {
+        // Private Class Field
+        #counter = 0;
+
+        increment() {
+          this.#counter++;
+        }
+
+        decrement() {
+          this.#counter--;
+        }
+
+        get() {
+          return this.#counter;
+        }
+      }
+
+      // Object
+      const counter = new Counter();
+      counter.increment();
+      counter.increment();
+      counter.increment();
+      counter.increment();
+      counter.increment();
+
+      counter.counter = 100; // ini tidak mengubah, melainkan malah menambah field baru
+      // counter.#counter = 100; // Error, karena dia bersifat private
+
+      console.log(counter);
+    </script>
+  </body>
+</html>

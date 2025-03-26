@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Public Field</title>
+  </head>
+  <body>
+    <script>
+      // Public Field
+      // Public field adalah field/property yang bisa diakses dari luar class
+      // Untuk membuat public class field, bisa langsung buat namaField = value. Jika tidak memasukkan value ke dalam field, maka field tersebut bernilai "undefined"
+      // Public class field ini berjalan di atas instance object
+      // Public class field ini selevel dengan method
+      // Public class field bisa dijadikan property pada constructor
+      // NOTED : SECARA DEFAULT FIELD DALAM CLASS ITU BERSIFAT PUBLIC
+
+      class Customer {
+        // Public Class Field
+        firstName; // undefined
+        lastName; // undefined
+        balance = 0;
+
+        // Constructor
+        constructor(firstName, lastName) {
+          // Mengambil field/property diatas seperti firstName, dll didalam constructor.
+          // this.firstName == firstName (public class field diatas)
+          this.firstName = firstName;
+          this.lastName = lastName;
+        }
+
+        // Method
+        sayHello() {}
+      }
+
+      // Object
+      const eko = new Customer("Eko", "Khannedy");
+      eko.firstName = "Budi";
+      console.log(eko);
+    </script>
+  </body>
+</html>
