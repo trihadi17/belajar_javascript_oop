@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator InstanceOf</title>
+  </head>
+  <body>
+    <script>
+      // Operator InstanceOf
+      // Digunakan untuk mengecek apakah sebuah Obejct merupakan instance dari class tertentu atau bukan (mengecek apakah object itu merupakan dari class tersebut)
+      // Operator instanceOf akan menghasilkan boolean, true jika benar object tersebut adalah instance objectnya atau false jika bukan
+
+      class Employee {}
+
+      class Manager {}
+
+      class VicePresident extends Manager {}
+
+      // Object
+      const eko = new Employee();
+      const budi = new Manager();
+      const hadi = new VicePresident();
+
+      // Cek dengan InstanceOf
+      console.log(eko instanceof Employee); // true, karena object eko berasal dari class Employee
+      console.log(eko instanceof Manager); // false
+
+      console.log(budi instanceof Employee); // false
+      console.log(budi instanceof Manager); // true, karena berasal dari class Manager
+
+      // Operator InstanceOf di Inheritance
+      // InstanceOf juga bisa digunakan untuk mengecek apakah sebuah object adalah instance dari class tertentu atau turunan dari class tertentu
+
+      console.log(hadi instanceof Employee); // false
+      console.log(hadi instanceof Manager); // true, karena object hadi yang merupakan dari class VicePresident merupakan inheritance/turunan dari class Manager
+      console.log(hadi instanceof VicePresident); // true
+    </script>
+  </body>
+</html>
