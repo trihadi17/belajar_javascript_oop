@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Class</title>
+  </head>
+  <body>
+    <script>
+      // Error Class (Cara Membuat Custom Error)
+      // Walaupun JS sudah memiliki standar class Error
+      // Namun alangkah baiknya, kita membedakan tiap jenis error
+      // Untuk membuat error sendiri secara manual sangatlah mudah, cukup membuat class turunan dari class Error
+      // Dan jangan lupa tambahkan parameter message, agar bisa dikirimkan ke parameter di constructor class Error
+      // NOTED : Dengan membuat secara custom, kita bisa membuat error tertentu seperti untuk Validasi, Database, Dll. Tidak dipukul rata sama semua
+
+      // Validation Error (Custom Error) -> Untuk validasi
+      // extends Error ini menjadikan class ValidationError menjadi child, sedangkan class Error (Parent)
+      class ValidationError extends Error {
+        constructor(message, field) {
+          // message digunakan untuk mengirimkan pesan nantinya sebagai parameter pada constructor di class Error (Parent)
+          super(message);
+          this.field = field;
+        }
+      }
+
+      class MathUtil {
+        // Static method
+        static bagi(a, b) {
+          if ((a === 0) | (b === 0)) {
+            // Custom Error
+            // ValidationError(message, field)
+            // message digunakan sebagai pesan
+            // field digunakan sebagai label atau tanda bagian field mana yang error
+            throw new ValidationError("tidak bisa dibagi dengan 0", "numbers"); // ValidationError("Pesan Error", "numbers"); -> numbers adalah sebagai tanda untuk error di field mana
+          }
+
+          return a / b;
+        }
+      }
+
+      // Try catch
+      try {
+        const math = MathUtil.bagi(1, 0);
+        console.log(math);
+      } catch (error) {
+        if (error instanceof ValidationError) {
+          console.log(
+            `Terjadi error di field ${error.field} dengan error ${error.message}`
+          );
+        } else {
+          console.log(`Terjadi error : ${error.message}`);
+        }
+      }
+
+      console.log("Kode Program Berlanjut"); // Kode ini akan tetap dilanjutkan dan tidak berhenti karna error.
+    </script>
+  </body>
+</html>

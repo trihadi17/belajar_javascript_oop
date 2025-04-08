@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error</title>
+  </head>
+  <body>
+    <script>
+      // Error
+      // Di JavaScript, Error merupakan sesuatu yang sudah standar
+      // Banyak sekali class error di JS, namun semua class error di JS selalu berujung di class Error, artinya class Error adlalah superclass untuk semua jenis error di JS
+      // Contoh class error yang terdapat di JS contohnya : SyntaxError, TypeError, EvalError dll
+
+      // THROW ERROR
+      // Saat kita membuat instance object dari class Error, tidak lantas otomatis terjadi error
+      // Kita perlu memberitahu program kita, bahwa kita akan mentriggger sebuah error terjadi, atau istilahnya adlah melempar error (throw error)
+      // Untuk melempar error, kita bisa gunakan kata kunci "throw", diikuti dengan instance object error nya
+      // Jika terjadi error, maka otomatis kode program kita akan terhenti, dan kita bisa melihat detail errornya di console di aplikasi browser kita
+
+      class MathUtil {
+        // Static method
+        static bagi(a, b) {
+          if ((a === 0) | (b === 0)) {
+            throw new Error("Tidak dibagi dengan 0"); // cara menggunakan throw error -> throw new Error("Pesan error")
+          }
+
+          return a / b;
+        }
+      }
+
+      const math = MathUtil.bagi(1, 0); // Muncul error, karena nilai parameter tidak boleh bernilai 0, program akan berhenti
+      console.log(math);
+    </script>
+  </body>
+</html>

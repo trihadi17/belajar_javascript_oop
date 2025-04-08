@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Handling</title>
+  </head>
+  <body>
+    <script>
+      // Error Handling
+      // Saat terjadi error di kode program JavaScript, kadang kita tidak ingin program kita berhenti
+      // Di JavaScript, kita bisa menangkap jika terjadi error
+      // Kita bisa menggunakan "TRY CATCH" statement untuk menangkap error
+      // Pada block "try", kita mencoba mengakses kode profram yang bisa menyebabkan error dan jika terjadi error, block try akan berhenti dan otomatis masuk ke block "catch"
+      // Jika tidak terjadi error, block catch tidak akan dieksekusi
+      // NOTED : PENGGUNAAN TRY CATCH SANGAT COCOK JIKA ADA ERROR NAMUN TIDAK MEMBERHENTIKAN PROGRAM SECARA KESELURUHAN, DIA AKAN MELANJUTKAN SYNTAX SELANJUTNYA SETELAH MENAMPILKAN ERRORNYA
+
+      class MathUtil {
+        // Static method
+        static bagi(a, b) {
+          if ((a === 0) | (b === 0)) {
+            throw new Error("Tidak dibagi dengan 0"); // cara menggunakan throw error -> throw new Error("Pesan error")
+          }
+
+          return a / b;
+        }
+      }
+
+      // Penggunakan TRY CATCH (Error Handling)
+      try {
+        const math = MathUtil.bagi(1, 0);
+        console.log(math); // Jika terjadi error, ini tidak akan dieksekusi, langsung melompat ke block "catch".
+      } catch (error) {
+        console.log(`Terjadi error : ${error.message}`); // menangkap pesan error -> error.message
+      }
+
+      console.log("Kode Program Berlanjut"); // Kode ini akan tetap dilanjutkan dan tidak berhenti karna error.
+
+      // Kata Kunci finally
+      // Kadang kita ingin melakukan sesuatu entah itu terjadi error ataupun tidak
+      // Dalam try catch, kita bisa menambahkan block "finally"
+      // Block finally ini akan selalu di eksekusi setelah try catch selesai, entah terjadi error atau tidak, block finaly akan selalu di eksekusi
+
+      /* try {
+        const math = MathUtil.bagi(1, 0);
+        console.log(math); // Jika terjadi error, ini tidak akan dieksekusi, langsung melompat ke block "catch".
+      } catch (error) {
+        console.log(`Terjadi error : ${error.message}`); // menangkap pesan error -> error.message
+      } finally {
+        // finally selalu berjalan mau error atau tidak
+        console.log("Kode Program udah selesai dalam try catch");
+      } */
+
+      // Try Finally
+      // Kata kunci finally juga bisa digunakan tanpa perlu menggunakan catch
+      // Biasanya ini digunakan dalam kasus tertentu
+
+      class Counter {
+        #counter = 1;
+
+        next() {
+          try {
+            return this.#counter;
+          } finally {
+            this.#counter++;
+          }
+        }
+      }
+
+      const counter = new Counter();
+      console.log(counter.next());
+      console.log(counter.next());
+      console.log(counter.next());
+      console.log(counter.next());
+      console.log(counter.next());
+    </script>
+  </body>
+</html>
